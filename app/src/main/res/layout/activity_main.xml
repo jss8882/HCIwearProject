@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="tutorials.androidstudio.fragmentsv4.MainActivity" >
+
+    <FrameLayout android:id="@+id/container"
+        android:background="@color/green"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I HATE ANDROID!!!!!!!!  부들" />
+    </FrameLayout>
+
+</RelativeLayout>
