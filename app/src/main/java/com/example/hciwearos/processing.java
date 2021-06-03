@@ -24,9 +24,9 @@ public class processing extends PApplet {
 
     public void setup(){
 
-
+//        fullScreen(P2D);
         //CalloutImage Setting
-        calloutImage = createGraphics(320,320);
+        calloutImage = createGraphics(320,320,P2D);
 
         background(125,125,125);
         //t = new FittsTask();
@@ -151,7 +151,7 @@ public class processing extends PApplet {
         int calloutOffsetY = 0;
         int calloutOffset=80;
 
-        int taskMode = 2;
+        int taskMode = 1;
 
 
         CalloutTask(){
@@ -266,14 +266,14 @@ public class processing extends PApplet {
 
                 fill(255);
                 rect(0, 0, width, height);
-                calloutMask = createGraphics(320,320); //size of mask
+                calloutMask = createGraphics(320,320,P2D); //size of mask
 
                 drawApplication();
 
                 calloutMask.beginDraw();
-                calloutMask.ellipse(mouseX, mouseY, calloutSize,calloutSize);
+                calloutMask.ellipse(mouseX, (-1*mouseY)+320, calloutSize,calloutSize);
                 calloutMask.endDraw();
-                calloutImage.mask(calloutMask);
+                calloutImage.mask(calloutMask.get());
                 noFill();
                 strokeWeight(2);
                 ellipse(mouseX+calloutOffsetX, mouseY+calloutOffsetY, calloutSize,calloutSize);
@@ -294,15 +294,15 @@ public class processing extends PApplet {
 
                 fill(255);
                 rect(0, 0, width, height);
-                calloutMask = createGraphics(320,320); //size of mask
+                calloutMask = createGraphics(320,320,P2D); //size of mask
 
                 t.drawApplication();
                 setCalloutPosition();
 
                 calloutMask.beginDraw();
-                calloutMask.ellipse(mouseX, mouseY, calloutSize,calloutSize);
+                calloutMask.ellipse(mouseX, (-1*mouseY)+320, calloutSize,calloutSize);
                 calloutMask.endDraw();
-                calloutImage.mask(calloutMask);
+                calloutImage.mask(calloutMask.get());
                 noFill();
                 strokeWeight(2);
                 ellipse(mouseX+calloutOffsetX, mouseY+calloutOffsetY, calloutSize,calloutSize);
@@ -685,5 +685,6 @@ public class processing extends PApplet {
             }
         }
     };
-    public void settings() {  size(320,320); }
+//    public void settings() { fullScreen(P2D); }
+    public void settings() {  size(320,320,P2D); }
 }
